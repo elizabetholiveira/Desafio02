@@ -19,4 +19,14 @@ public class VendedorResponsavel {
             System.out.println(vendedores.get(i));
         }
     }
+
+    public boolean identificarVendedor(String nomeVendedorVenda){
+        boolean vendedorEncontrado = false;
+        for (String nome : vendedores) {
+            if (nome.equalsIgnoreCase(nomeVendedorVenda)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
