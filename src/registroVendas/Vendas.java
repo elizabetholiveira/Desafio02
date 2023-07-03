@@ -1,43 +1,45 @@
 package registroVendas;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vendas {
 
-    private String[] vendedorResponsávelVenda;
-    private String[] clienteVenda;
-    private BigDecimal[] valorVenda;
-    private String[] dataVenda;
+    private List<String> vendedorResponsávelVenda = new ArrayList<>();
+    private List<String> clienteVenda = new ArrayList<>();
+    private List<BigDecimal> valorVenda = new ArrayList<>();
+    private List<LocalDate> dataVenda = new ArrayList<>();
 
-    public String[] getVendedorResponsávelVenda() {
-        return vendedorResponsávelVenda;
+    public void registrarVenda (String vendedor, String cliente, BigDecimal valor, LocalDate data){
+        this.vendedorResponsávelVenda.add(vendedor);
+        this.clienteVenda.add(cliente);
+        this.valorVenda.add(valor);
+        this.dataVenda.add(data);
+
+        System.out.println();
+        System.out.println("----------");
+        System.out.println("Dados da venda:");
+        System.out.println("Vendedor: " + vendedor);
+        System.out.println("Cliente: " + cliente);
+        System.out.printf("Valor: R$ %,.2f%n", valor);
+        System.out.println("Data da venda: " + data);
+        System.out.println("----------");
+        System.out.println();
     }
 
-    public void setVendedorResponsávelVenda(String[] vendedorResponsávelVenda) {
-        this.vendedorResponsávelVenda = vendedorResponsávelVenda;
-    }
-
-    public String[] getClienteVenda() {
-        return clienteVenda;
-    }
-
-    public void setClienteVenda(String[] clienteVenda) {
-        this.clienteVenda = clienteVenda;
-    }
-
-    public BigDecimal[] getValorVenda() {
-        return valorVenda;
-    }
-
-    public void setValorVenda(BigDecimal[] valorVenda) {
-        this.valorVenda = valorVenda;
-    }
-
-    public String[] getDataVenda() {
-        return dataVenda;
-    }
-
-    public void setDataVenda(String[] dataVenda) {
-        this.dataVenda = dataVenda;
+    public void listarVendas(){
+        for (int i = 0; i < vendedorResponsávelVenda.size(); i++) {
+            System.out.println();
+            System.out.println("----------");
+            System.out.println("Dados da venda:");
+            System.out.println("Vendedor: " + vendedorResponsávelVenda.get(i));
+            System.out.println("Cliente: " + clienteVenda.get(i));
+            System.out.printf("Valor: R$ %,.2f%n", valorVenda.get(i));
+            System.out.println("Data da venda: " + dataVenda.get(i));
+            System.out.println("----------");
+            System.out.println();
+        }
     }
 }

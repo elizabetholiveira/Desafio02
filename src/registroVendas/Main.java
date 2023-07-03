@@ -2,6 +2,7 @@ package registroVendas;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +15,7 @@ public class Main {
         VendedorResponsavel vendedorResponsavel = new VendedorResponsavel();
         Pagamento pagamento = new Pagamento();
         DataRegistro dataRegistro = new DataRegistro();
+        Vendas registroVendas = new Vendas();
 
         System.out.println("Boas-vindas ao sistema de registro de vendas!");
 
@@ -57,7 +59,7 @@ public class Main {
                     resposta.nextLine();
                     String nomeVendedorVenda = resposta.nextLine();
                     boolean vendedorExiste = vendedorResponsavel.identificarVendedor(nomeVendedorVenda);
-                    if (vendedorExiste == true){
+                    if (vendedorExiste){
                         System.out.println("Vendedor encontrado!");
                     } else {
                         System.out.println("Vendedor não encontrado!");
@@ -66,21 +68,26 @@ public class Main {
                     //Selecionando cliente:
                     System.out.println("Digite o nome do cliente:");
                     String nomeClienteVenda = resposta.nextLine();
+                    boolean clienteExiste = cliente.identificarCliente(nomeClienteVenda);
+                    if (clienteExiste){
+                        System.out.println("Cliente encontrado!");
+                    } else {
+                        System.out.println("Cliente não encontrado!");
+                        break;
+                    }
                     //Digitando valor da compra:
                     System.out.println("Digite o valor da compra:");
                     pagamento.setValorPagamento(new BigDecimal(resposta.next()));
                     //Data da venda:
                     dataRegistro.setDataRegistroVenda(LocalDate.now());
-                    //Dados da venda:
-                    System.out.println();
-                    System.out.println("----------");
-                    System.out.println("Dados da venda:");
-                    System.out.println("Vendedor: " + nomeVendedorVenda);
-                    System.out.println("Cliente: " + nomeClienteVenda);
-                    System.out.println("Valor: " + pagamento.getValorPagamento());
-                    System.out.println("Data da venda: " + dataRegistro.getDataRegistroVenda());
-                    System.out.println("----------");
-                    System.out.println();
+                    //Guardar dados da venda:
+                    registroVendas.registrarVenda(nomeVendedorVenda, nomeClienteVenda, pagamento.getValorPagamento(), dataRegistro.getDataRegistroVenda());
+                    break;
+                case 6:
+                    registroVendas.listarVendas();
+                    break;
+                default:
+                    System.out.println("Entrada inválida");
             }
         }
     }

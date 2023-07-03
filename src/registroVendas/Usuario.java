@@ -10,5 +10,6 @@ public class Usuario {
         System.out.println("3) Cadastrar vendedor");
         System.out.println("4) Ver vendedores cadastrados");
         System.out.println("5) Registrar nova venda");
+        System.out.println("6) Ver registro de vendas");
     }
 }

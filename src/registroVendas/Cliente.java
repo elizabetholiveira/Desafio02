@@ -19,4 +19,13 @@ public class Cliente {
             System.out.println(clientes.get(i));
         }
     }
+    public boolean identificarCliente(String nomeClienteVenda){
+        boolean clienteEncontrado = false;
+        for (String nome : clientes) {
+            if (nome.equalsIgnoreCase(nomeClienteVenda)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
