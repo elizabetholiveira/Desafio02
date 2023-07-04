@@ -30,14 +30,20 @@ public class Main {
                     sistemaAtivo = false;
                     break;
                 case 1:
-                    System.out.println("Digite o nome, o email e o CPF do cliente que deseja cadastrar:");
+                    System.out.println("Digite o nome do cliente:");
                     resposta.nextLine();
-                    boolean clienteValido = cliente.cadastrarCliente(resposta.nextLine(), resposta.next(), resposta.next());
-                    if (clienteValido){
+                    String nomeCliente = resposta.nextLine();
+                    System.out.println("Digite o cpf do cliente:");
+                    String cpfCliente = resposta.next();
+                    System.out.println("Digita o email do cliente:");
+                    String emailCliente = resposta.next();
+                    if (cliente.emailContemArroba(emailCliente) && !cliente.listaContemEmailCliente(emailCliente) && !cliente.listaContemCpfCliente(cpfCliente)){
+                        cliente.cadastrarClienteNome(nomeCliente);
+                        cliente.cadastrarClienteEmail(emailCliente);
+                        cliente.cadastrarClienteCpf(cpfCliente);
                         System.out.println("Cliente cadastrado com sucesso!");
                     } else {
-                        System.out.println("Cadastro de cliente inválido!");
-                        break;
+                        System.out.println("Algum(ns) dados inserídos são inválidos. Cliente não cadastrado!");
                     }
                 case 2:
                     System.out.println();
@@ -51,7 +57,7 @@ public class Main {
                     System.out.println("Digite o nome do vendedor que deseja cadastar:");
                     resposta.nextLine();
                     boolean vendedorValido = vendedorResponsavel.cadastrarVendedor(resposta.nextLine(), resposta.next(), resposta.next());
-                    if (vendedorValido){
+                    if (vendedorValido == true){
                         System.out.println("Vendedor cadastrado com sucesso!");
                     } else {
                         System.out.println("Cadastro de vendedor inválido!");
