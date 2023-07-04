@@ -30,9 +30,15 @@ public class Main {
                     sistemaAtivo = false;
                     break;
                 case 1:
-                    System.out.println("Digite o nome do cliente que deseja cadastrar:");
+                    System.out.println("Digite o nome, o email e o CPF do cliente que deseja cadastrar:");
                     resposta.nextLine();
-                    cliente.cadastrarCliente(resposta.nextLine());
+                    boolean clienteValido = cliente.cadastrarCliente(resposta.nextLine(), resposta.next(), resposta.next());
+                    if (clienteValido){
+                        System.out.println("Cliente cadastrado com sucesso!");
+                    } else {
+                        System.out.println("Cadastro de cliente inválido!");
+                        break;
+                    }
                 case 2:
                     System.out.println();
                     System.out.println("----------");
@@ -44,7 +50,13 @@ public class Main {
                 case 3:
                     System.out.println("Digite o nome do vendedor que deseja cadastar:");
                     resposta.nextLine();
-                    vendedorResponsavel.cadastrarVendedor(resposta.nextLine());
+                    boolean vendedorValido = vendedorResponsavel.cadastrarVendedor(resposta.nextLine(), resposta.next(), resposta.next());
+                    if (vendedorValido){
+                        System.out.println("Vendedor cadastrado com sucesso!");
+                    } else {
+                        System.out.println("Cadastro de vendedor inválido!");
+                        break;
+                    }
                 case 4:
                     System.out.println();
                     System.out.println("----------");
