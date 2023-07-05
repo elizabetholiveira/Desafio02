@@ -43,7 +43,7 @@ public class Main {
                         cliente.cadastrarClienteCpf(cpfCliente);
                         System.out.println("Cliente cadastrado com sucesso!");
                     } else {
-                        System.out.println("Algum(ns) dados inserídos são inválidos. Cliente não cadastrado!");
+                        System.out.println("Algum(ns) dados inseridos são inválidos. Cliente não cadastrado!");
                     }
                 case 2:
                     System.out.println();
@@ -54,14 +54,20 @@ public class Main {
                     System.out.println();
                     break;
                 case 3:
-                    System.out.println("Digite o nome do vendedor que deseja cadastar:");
+                    System.out.println("Digite o nome do vendedor:");
                     resposta.nextLine();
-                    boolean vendedorValido = vendedorResponsavel.cadastrarVendedor(resposta.nextLine(), resposta.next(), resposta.next());
-                    if (vendedorValido == true){
+                    String nomeVendedor = resposta.nextLine();
+                    System.out.println("Digite o cpf do vendedor:");
+                    String cpfVendedor = resposta.next();
+                    System.out.println("Digite o email do vendedor:");
+                    String emailVendedor = resposta.next();
+                    if (vendedorResponsavel.emailContemArroba(emailVendedor) && !vendedorResponsavel.listaContemEmailVendedor(emailVendedor) && !vendedorResponsavel.listaContemCpfVendedor(cpfVendedor)){
+                        vendedorResponsavel.cadastrarVendedorNome(nomeVendedor);
+                        vendedorResponsavel.cadastrarVendedorEmail(emailVendedor);
+                        vendedorResponsavel.cadastrarVendedorCpf(cpfVendedor);
                         System.out.println("Vendedor cadastrado com sucesso!");
                     } else {
-                        System.out.println("Cadastro de vendedor inválido!");
-                        break;
+                        System.out.println("Algum(ns) dados inseridos são inválidos. Vendedor não cadastrado!");
                     }
                 case 4:
                     System.out.println();

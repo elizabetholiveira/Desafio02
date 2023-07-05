@@ -10,31 +10,32 @@ public class VendedorResponsavel {
     private List<String> vendedoresEmails = new ArrayList<>();
     private List<String> vendedoresCpfs = new ArrayList<>();
 
-    //Cadastrar cliente
-    public boolean cadastrarVendedor(String nomeVendedor, String emailVendedor, String cpfVendedor){
-        for (String cpfs : vendedoresCpfs){
-            if (cpfVendedor == cpfs) {
-                System.out.println("CPF já cadastrado!");
-                return false;
-            }
-        }
-        for (String emails : vendedoresEmails){
-            if (emailVendedor == emails) {
-                System.out.println("E-mail já cadastrado!");
-                return false;
-            }
-        }
-        if (emailVendedor.contains("@") && cpfVendedor.length() == 11){
-            vendedoresNomes.add(nomeVendedor);
-            vendedoresEmails.add(emailVendedor);
-            vendedoresCpfs.add(cpfVendedor);
-            return true;
-        } else {
-            return false;
-        }
+    //Cadastrar vendedor
+    public void cadastrarVendedorNome(String nomeVendedor){
+        vendedoresNomes.add(nomeVendedor);
     }
 
-    //Ver clientes cadastrados
+    public void cadastrarVendedorEmail(String emailVendedor){
+        vendedoresEmails.add(emailVendedor);
+    }
+
+    public void cadastrarVendedorCpf(String cpfVendedor){
+        vendedoresCpfs.add(cpfVendedor);
+    }
+
+    public boolean listaContemEmailVendedor(String emailVendedor){
+        return vendedoresEmails.contains(emailVendedor);
+    }
+
+    public boolean emailContemArroba(String emailVendedor){
+        return emailVendedor.contains("@");
+    }
+
+    public boolean listaContemCpfVendedor(String cpfVendedor){
+        return vendedoresCpfs.contains(cpfVendedor);
+    }
+
+    //Ver vendedores cadastrados
     public void verVendedores(){
         for (int i = 0; i < vendedoresNomes.size(); i++){
             System.out.println("----------");
