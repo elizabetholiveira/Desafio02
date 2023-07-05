@@ -112,7 +112,7 @@ public class Main {
                     break;
                 case 7:
                     System.out.println("Digite o cpf do cliente que deseja procurar:");
-                    cliente.identificarClienteCpf(resposta.next());
+                    cliente.identificarClienteCpf(resposta.next(), registroVendas);
                     break;
                 default:
                     System.out.println("Entrada inválida");

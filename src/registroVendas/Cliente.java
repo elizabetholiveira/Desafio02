@@ -1,14 +1,20 @@
 package registroVendas;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Cliente {
+
+    Vendas vendas = new Vendas();
 
     //Identificação dos clientes
     private List<String> clientesNome = new ArrayList<>();
     private List<String> clientesEmail = new ArrayList<>();
     private List<String> clientesCpfs = new ArrayList<>();
+
+
 
     //Cadastrar cliente
     public void cadastrarClienteNome(String nomeCliente){
@@ -54,7 +60,7 @@ public class Cliente {
 
 
 
-    public void identificarClienteCpf(String cpfCliente){
+    public void identificarClienteCpf(String cpfCliente, Vendas vendas){
         boolean clienteEncontrado = true;
         for (int i = 0; i < clientesCpfs.size(); i++){
             if (clientesCpfs.get(i).equalsIgnoreCase(cpfCliente)){
@@ -64,6 +70,19 @@ public class Cliente {
                 System.out.println("E-mail: " + clientesEmail.get(i));
                 System.out.println("CPF: " + clientesCpfs.get(i));
                 System.out.println("----------");
+                for (int h = 0; h < vendas.getClienteVenda().size(); h++){
+                    if (vendas.getClienteVenda().get(h).equalsIgnoreCase(clientesNome.get(i))){
+                        System.out.println();
+                        System.out.println("----------");
+                        System.out.println("Dados da venda:");
+                        System.out.println("Vendedor: " + vendas.getVendedorResponsávelVenda().get(h));
+                        System.out.println("Cliente: " + vendas.getClienteVenda().get(h));
+                        System.out.printf("Valor: R$ %,.2f%n", vendas.getValorVenda().get(h));
+                        System.out.println("Data da venda: " + vendas.getDataVenda().get(h));
+                        System.out.println("----------");
+                        System.out.println();
+                    }
+                }
                 clienteEncontrado = true;
                 break;
             } else {

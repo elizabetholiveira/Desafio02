@@ -12,6 +12,22 @@ public class Vendas {
     private List<BigDecimal> valorVenda = new ArrayList<>();
     private List<LocalDate> dataVenda = new ArrayList<>();
 
+    public List<String> getVendedorResponsávelVenda() {
+        return vendedorResponsávelVenda;
+    }
+
+    public List<String> getClienteVenda() {
+        return clienteVenda;
+    }
+
+    public List<BigDecimal> getValorVenda() {
+        return valorVenda;
+    }
+
+    public List<LocalDate> getDataVenda() {
+        return dataVenda;
+    }
+
     public void registrarVenda (String vendedor, String cliente, BigDecimal valor, LocalDate data){
         this.vendedorResponsávelVenda.add(vendedor);
         this.clienteVenda.add(cliente);
