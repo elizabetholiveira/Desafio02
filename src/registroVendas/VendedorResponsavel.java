@@ -53,4 +53,37 @@ public class VendedorResponsavel {
         }
         return false;
     }
+
+    public void identificarVendedorEmail(String emailVendedor, Vendas vendas){
+        boolean vendedorEncontrado = true;
+        for (int i = 0; i < vendedoresEmails.size(); i++){
+            if (vendedoresEmails.get(i).equalsIgnoreCase(emailVendedor)){
+                System.out.println("Vendedor encontrado!");
+                System.out.println("----------");
+                System.out.println("Nome: " + vendedoresNomes.get(i));
+                System.out.println("E-mail: " + vendedoresEmails.get(i));
+                System.out.println("CPF: " + vendedoresCpfs.get(i));
+                System.out.println("----------");
+                for (int h = 0; h < vendas.getVendedorResponsávelVenda().size(); h++){
+                    if (vendas.getVendedorResponsávelVenda().get(h).equalsIgnoreCase(vendedoresNomes.get(i))){
+                        System.out.println();
+                        System.out.println("Dados da venda:");
+                        System.out.println("Vendedor: " + vendas.getVendedorResponsávelVenda().get(h));
+                        System.out.println("Cliente: " + vendas.getClienteVenda().get(h));
+                        System.out.printf("Valor: R$ %,.2f%n", vendas.getValorVenda().get(h));
+                        System.out.println("Data da venda: " + vendas.getDataVenda().get(h));
+                        System.out.println();
+                        System.out.println("----------");
+                    }
+                }
+                vendedorEncontrado = true;
+                break;
+            } else {
+                vendedorEncontrado = false;
+            }
+        }
+        if (vendedorEncontrado == false) {
+            System.out.println("Vendedor não encontrado!");
+        }
+    }
 }

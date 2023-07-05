@@ -114,6 +114,10 @@ public class Main {
                     System.out.println("Digite o cpf do cliente que deseja procurar:");
                     cliente.identificarClienteCpf(resposta.next(), registroVendas);
                     break;
+                case 8:
+                    System.out.println("Digite o email do vendedor que deseja procurar:");
+                    vendedorResponsavel.identificarVendedorEmail(resposta.next(), registroVendas);
+                    break;
                 default:
                     System.out.println("Entrada inválida");
             }

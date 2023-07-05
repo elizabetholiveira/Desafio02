@@ -73,14 +73,13 @@ public class Cliente {
                 for (int h = 0; h < vendas.getClienteVenda().size(); h++){
                     if (vendas.getClienteVenda().get(h).equalsIgnoreCase(clientesNome.get(i))){
                         System.out.println();
-                        System.out.println("----------");
                         System.out.println("Dados da venda:");
                         System.out.println("Vendedor: " + vendas.getVendedorResponsávelVenda().get(h));
                         System.out.println("Cliente: " + vendas.getClienteVenda().get(h));
                         System.out.printf("Valor: R$ %,.2f%n", vendas.getValorVenda().get(h));
                         System.out.println("Data da venda: " + vendas.getDataVenda().get(h));
-                        System.out.println("----------");
                         System.out.println();
+                        System.out.println("----------");
                     }
                 }
                 clienteEncontrado = true;
