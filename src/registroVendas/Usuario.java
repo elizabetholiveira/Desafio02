@@ -11,5 +11,7 @@ public class Usuario {
         System.out.println("4) Ver vendedores cadastrados");
         System.out.println("5) Registrar nova venda");
         System.out.println("6) Ver registro de vendas");
+        System.out.println("7) Pesquisar todas as compras de um cliente pelo CPF");
+        System.out.println("8) Pesquisar todas as vendas de um vendedor pelo e-mail");
     }
 }

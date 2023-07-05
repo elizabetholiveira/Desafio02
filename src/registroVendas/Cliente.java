@@ -51,4 +51,27 @@ public class Cliente {
         }
         return false;
     }
+
+
+
+    public void identificarClienteCpf(String cpfCliente){
+        boolean clienteEncontrado = true;
+        for (int i = 0; i < clientesCpfs.size(); i++){
+            if (clientesCpfs.get(i).equalsIgnoreCase(cpfCliente)){
+                System.out.println("Cliente encontrado!");
+                System.out.println("----------");
+                System.out.println("Nome: " + clientesNome.get(i));
+                System.out.println("E-mail: " + clientesEmail.get(i));
+                System.out.println("CPF: " + clientesCpfs.get(i));
+                System.out.println("----------");
+                clienteEncontrado = true;
+                break;
+            } else {
+                clienteEncontrado = false;
+            }
+        }
+        if (clienteEncontrado == false) {
+            System.out.println("Cliente não encontrado!");
+        }
+    }
 }
