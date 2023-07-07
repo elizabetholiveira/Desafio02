@@ -22,14 +22,15 @@ public class Main {
         boolean sistemaAtivo = true;
 
             while (sistemaAtivo) {
+                try {
                     menu.Menu();
-                    String selecao = resposta.next();
+                    int selecao = resposta.nextInt();
 
                     switch (selecao) {
-                        case "0":
+                        case 0:
                             sistemaAtivo = false;
                             break;
-                        case "1":
+                        case 1:
                             System.out.println("Digite o nome do cliente:");
                             resposta.nextLine();
                             String nomeCliente = resposta.nextLine();
@@ -45,7 +46,7 @@ public class Main {
                             } else {
                                 System.out.println("Algum(ns) dados inseridos são inválidos. Cliente não cadastrado!");
                             }
-                        case "2":
+                        case 2:
                             System.out.println();
                             System.out.println("----------");
                             System.out.println("Clientes cadastrados:");
@@ -53,7 +54,7 @@ public class Main {
                             System.out.println("----------");
                             System.out.println();
                             break;
-                        case "3":
+                        case 3:
                             System.out.println("Digite o nome do vendedor:");
                             resposta.nextLine();
                             String nomeVendedor = resposta.nextLine();
@@ -69,7 +70,7 @@ public class Main {
                             } else {
                                 System.out.println("Algum(ns) dados inseridos são inválidos. Vendedor não cadastrado!");
                             }
-                        case "4":
+                        case 4:
                             System.out.println();
                             System.out.println("----------");
                             System.out.println("Vendedores cadastrados:");
@@ -77,7 +78,7 @@ public class Main {
                             System.out.println("----------");
                             System.out.println();
                             break;
-                        case "5":
+                        case 5:
                             //Selecionando vendedor:
                             System.out.println("Digite o nome do vendedor responsável pela venda:");
                             resposta.nextLine();
@@ -107,20 +108,24 @@ public class Main {
                             //Guardar dados da venda:
                             registroVendas.registrarVenda(nomeVendedorVenda, nomeClienteVenda, pagamento.getValorPagamento(), dataRegistro.getDataRegistroVenda());
                             break;
-                        case "6":
+                        case 6:
                             registroVendas.listarVendas();
                             break;
-                        case "7":
+                        case 7:
                             System.out.println("Digite o cpf do cliente que deseja procurar:");
                             cliente.identificarClienteCpf(resposta.next(), registroVendas);
                             break;
-                        case "8":
+                        case 8:
                             System.out.println("Digite o email do vendedor que deseja procurar:");
                             vendedorResponsavel.identificarVendedorEmail(resposta.next(), registroVendas);
                             break;
                         default:
                             System.out.println("Entrada inválida");
                     }
+                } catch (InputMismatchException e) {
+                    System.out.println("Entrada inválida");
+                    resposta.nextLine();
+                }
             }
 
     }
