@@ -7,8 +7,6 @@ import java.util.Map;
 
 public class Cliente {
 
-    Vendas vendas = new Vendas();
-
     //Identificação dos clientes
     private List<String> clientesNome = new ArrayList<>();
     private List<String> clientesEmail = new ArrayList<>();

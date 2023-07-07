@@ -1,6 +1,6 @@
 package registroVendas;
 
-public class Usuario {
+public class Menu {
 
     public void Menu(){
         System.out.println("Selecione a ação desejada:");
